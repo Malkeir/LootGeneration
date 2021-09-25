@@ -18,11 +18,11 @@ public class ITEMS extends LOOT {
         {
           this.itemName = name ;
         }
-
     public void setDescription(String description)
     {
         this.description = description ;
     }
+
     public void setRarity(String name)
     {
         switch(name)
@@ -60,7 +60,7 @@ public class ITEMS extends LOOT {
         return this.rarity;
     }
 
-    public void createItem(String name,String description,String rarity)
+    public void main(String name,String description,String rarity)
     {
         this.setItemName(name);
         this.setDescription(description);

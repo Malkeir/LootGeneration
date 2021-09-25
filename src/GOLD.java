@@ -1,11 +1,11 @@
-enum Convertion
+enum Convertion1
 {
-    SILVER(1/10),
-    GOLD(1/100),
-    PLATINUM(1/1000);
+    COPPER(100),
+    SILVER(10),
+    PLATINUM(1/10);
 
     private final double conv;
-    private Convertion(double conv)
+    private Convertion1(double conv)
     {
         this.conv = conv;
     }
@@ -17,33 +17,35 @@ enum Convertion
 
 public class GOLD extends MONEY
 {
-    private int gp = 0;
+    private double gp = 0;
 
-    public int getGp() {
+    public double getGp() {
         return this.gp;
     }
 
-    public void setGp(int gp) {
+    public void setGp(double gp) {
         this.gp = gp;
     }
-
-    @Override
-    public double convertMoney(String converstionType, String convertionFrom)
+    public double convertMoney(String converstionType)
     {
         double converstion = 0;
         switch(converstionType)
         {
             case "COPPER":
-                converstion = Convertion.PLATINUM.getConv() * this.gp;
+                converstion = Convertion1.COPPER.getConv() * this.gp;
                 break;
-            case "GOLD":
-                converstion = Convertion.PLATINUM.getConv() * this.gp;
+            case "SILVER":
+                converstion = Convertion1.SILVER.getConv() * this.gp;
                 break;
             case "PLATINUM":
-                converstion = Convertion.PLATINUM.getConv() * this.gp;
+                converstion = Convertion1.PLATINUM.getConv() * this.gp;
                 break;
 
         }
         return converstion;
+    }
+    public void GOLD(double amount)
+    {
+        this.setGp(amount);
     }
 }
